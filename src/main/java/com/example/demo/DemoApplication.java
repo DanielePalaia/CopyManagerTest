@@ -34,8 +34,9 @@ public class DemoApplication  implements CommandLineRunner {
 		String database = jdbcProperties.getProperty("database");
 		String query = jdbcProperties.getProperty("query");
 		String filename = jdbcProperties.getProperty("filename");
+		String delim = jdbcProperties.getProperty("delim");
 
-		JdbcProxy databaseproxy = new JdbcProxy(jdbcString, username, password, database, query, filename);
+		JdbcProxy databaseproxy = new JdbcProxy(jdbcString, username, password, database, query, filename, delim);
 		databaseproxy.connect();
 		databaseproxy.processEvents();
 

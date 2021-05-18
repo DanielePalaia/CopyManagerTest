@@ -25,7 +25,7 @@ public class JdbcProxy  {
 	private String filename = null;
 	//private static final String SQL_INSERT = "INSERT INTO TEST (ID, DATA) VALUES (?,?)";
 
-	public JdbcProxy(String jdbcString, String username, String passwd, String database, String query, String filename)    {
+	public JdbcProxy(String jdbcString, String username, String passwd, String database, String query, String filename, String delim)    {
 
 		this.jdbcString = jdbcString;
 		this.username = username;
@@ -33,6 +33,7 @@ public class JdbcProxy  {
 		this.database = database;
 		this.query = query;
 		this.filename = filename;
+		this.delim = delim;
 	}
 
 	public void connect()    {
@@ -68,7 +69,7 @@ public class JdbcProxy  {
 			///Writer writer = new StringWriter();
 			//StringWriter stringwriter = new StringWriter();
 			FileWriter fileWriter = new FileWriter(filename);
-			String copycommand = "copy " +  query + " to stdout with delimiter ','" + ";";
+			String copycommand = "copy " +  query + " to stdout with delimiter '"+delim+"'" + ";";
 			System.out.println(copycommand);
 			cm.copyOut(copycommand, fileWriter);
 
