@@ -1,4 +1,4 @@
-# CopyManagerTest
+# CopyManagerDemo (for Greenplum)
 
 This demo is running a Greenplum copy command using JDBC libraries for Postgresql </br>
 
