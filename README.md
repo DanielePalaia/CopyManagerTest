@@ -18,7 +18,8 @@ delim=,
 filename=/Users/dpalaia/export.csv
 ```
 
-delim is the column you want to use for the copy command. </br>
+query is the query to run in copy mode
+delim is the column separator you want to use for the copy command. </br>
 filename is the output file </br>
 
 At the end you will have an output like this: </br>
@@ -41,12 +42,12 @@ The copy command code is quite straightforward to use and is using the Postgresq
 
 ```
 CopyManager cm = ((PGConnection) connection).getCopyAPI();
-			FileWriter fileWriter = new FileWriter(filename);
-			String copycommand = "copy " +  query + " to stdout with delimiter '"+delim+"'" + ";";
-			System.out.println(copycommand);
-			cm.copyOut(copycommand, fileWriter);
+FileWriter fileWriter = new FileWriter(filename);
+String copycommand = "copy " +  query + " to stdout with delimiter '"+delim+"'" + ";";
+System.out.println(copycommand);
+cm.copyOut(copycommand, fileWriter);
 
-			fileWriter.close();
+fileWriter.close();
 ```
 
 ## How to compile
