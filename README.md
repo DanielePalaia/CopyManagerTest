@@ -54,4 +54,6 @@ fileWriter.close();
 
 This demo is compiled with maven, To compile the .jar is enough to mvn install on the root path </br>
 
-mvn install
+mvn install  </br>
+
+It will download all the dependencies if needed.
